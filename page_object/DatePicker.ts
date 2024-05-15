@@ -46,6 +46,7 @@ export class DatePicker {
 
   randomYearNumber = _.random(1,50);
   date = _.random(1, 30);
+  dateUpdated = num => (num < 10) ? '0' + num : num;
 
   public async dateFromToday(){
      let obj = {
@@ -74,7 +75,7 @@ export class DatePicker {
      console.log(month);
      console.log( this.date);
     await this.page.locator(this.dateFromComponent).getByRole('link', {name: this.date, exact:true}).click();
-    expect( await this.page.locator(this.fromInput).inputValue()).toBe(`${obj[month]}/${this.date}/${year}`);
+    expect( await this.page.locator(this.fromInput).inputValue()).toBe(`${obj[month]}/${this.dateUpdated(this.date)}/${year}`);
     //let date = this.date < 10 ? `0${this.date}` : this.date + "";
 
 
