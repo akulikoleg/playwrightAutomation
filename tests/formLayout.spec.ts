@@ -7,11 +7,13 @@ it.describe('Form Layout Type', () => {
 
 
   it("Fill all fields", async ({page}) => {
+
+
     await  page.goto('http://localhost:4200/pages/forms/layouts');
     //inline Form
     await page.locator('[placeholder=\'Jane Doe\']').fill('Mike');
     await page.locator('[class="input-full-width size-medium status-basic shape-rectangle nb-transition"][placeholder="Email"][type="text"]').pressSequentially('miketheft@mail.com');
-    //checkbox
+    await page.locator('.custom-checkbox').nth(0).check();   // use it for other checkbox
     await page.locator('//button[@class="appearance-filled size-medium shape-rectangle status-primary nb-transition"][contains(text(),"Submit")]').click();
 
     //Using the grid
