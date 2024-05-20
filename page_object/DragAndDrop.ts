@@ -46,7 +46,7 @@ export class DragAndDrop {
       .locator(this.dragMe, { hasText: text })
       .dragTo(this.page.locator(this.dropMe));
     expect(await this.page.locator(this.dropMe).textContent()).toContain(textInDropBox);
-    expect(this.page.locator(this.dropMe)).toHaveCSS(
+    expect(await this.page.locator(this.dropMe)).toHaveCSS(
       "background-color",
       "rgb(14, 186, 197)"
     );
