@@ -8,7 +8,8 @@
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve"
+    "start": "ng serve",
+    "dropDown": "npx playwright test dropDown.spec.ts"
   },
   "dependencies": {
     "@angular/animations": "^14.2.12",
