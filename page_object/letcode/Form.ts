@@ -61,15 +61,31 @@ export class Form{
 
     await this.page.locator('div > div > form > div:nth-child(2) > div:nth-child(2) > div > div > div > select').click();
     const ddElement = this.page.locator('div > div > form > div:nth-child(2) > div:nth-child(2) > div > div > div > select');
-    await ddElement.press('Space');
-    await this.page.waitForTimeout(4000);
-    // await ddElement.pressSequentially('Moldova');
-    // await ddElement.selectOption({value:'Moldova (+373)'});
+    //await ddElement.press('ArrowDown');
+    //await this.page.waitForTimeout(4000);
+    //await ddElement.pressSequentially('Mol');
+    await this.page.keyboard.press('Enter');
+    //await this.page.waitForTimeout(4000);
+    //await expect(this.page.locator('div > div > form > div:nth-child(2) > div:nth-child(2) > div > div > div > select')).toContainText('Moldova');
+    await ddElement.selectOption({value:'373'});
     // console.log(await this.page.locator('div.column.is-7-desktop.is-8-tablet > div > div > form > div:nth-child(2) > div:nth-child(2) > div > div > div > select > option').allTextContents());
     // await this.page.locator('div.column.is-7-desktop.is-8-tablet > div > div > form > div:nth-child(2) > div:nth-child(2) > div > div > div > select > option').filter({hasText:"373" }).click();
 
+    await this.page.locator(this.phoneNumberInput).pressSequentially('8642588521');
+    await this.page.locator(this.addressInputLine1).fill('250 patrick lane');
+    await this.page.locator(this.addressInputLine2).fill('250 patrick lane');
+    await this.page.locator(this.stateInput).fill('GA');
+    await this.page.locator(this.postalCodeInput).fill('29360');
 
 
+    await this.page.locator('div > div > form > div:nth-child(5) > div:nth-child(2) > div > div > div > select').click();
+    const ddElement2 = this.page.locator('div > div > form > div:nth-child(5) > div:nth-child(2) > div > div > div > select');
+    await this.page.keyboard.press('Space');
+    await ddElement2.selectOption({value: 'United States'});
+    await this.page.locator(this.dateOfBirthInput).pressSequentially('04091993');
+    await this.page.locator('//*[@id="male"]').click();
+    await this.page.getByRole('checkbox').check();
+    await this.page.locator('//*[@class="button is-primary"]').click();
   }
 
 
