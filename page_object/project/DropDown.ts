@@ -29,7 +29,6 @@ export class DropDown {
     console.log(await this.page.locator(this.dropDownList).allTextContents());
     await this.page.locator(this.dropDownList).filter({hasText:'Dark'}).click();
     await expect(this.page.locator(this.header)).toHaveCSS('background-color', 'rgb(34, 43, 69)');
-    //this.page.selectOption()
 
   }
 
