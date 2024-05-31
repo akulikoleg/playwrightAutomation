@@ -28,7 +28,6 @@ export default defineConfig({
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
     //baseURL:  process.env.BASEURL || 'http://127.0.0.1:3000',
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
@@ -39,7 +38,8 @@ export default defineConfig({
 
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], storageState: './.auth/user.json' },
+      //use: { ...devices['Desktop Chrome'], storageState: './.auth/user.json' },
+      use: { ...devices['Desktop Chrome'], storageState: './.auth/userLocalCoding.json' },
       dependencies: ['setup'],
     },
 
