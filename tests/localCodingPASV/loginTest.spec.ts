@@ -5,13 +5,15 @@ test.beforeEach( async ( {page}) => {
 
 })
 
-test('Navigate to Interview', async ({page, browserName}) => {
+test('Navigate to Interview', async ({page, browserName}) => {4
 
-  await page.locator('//a[contains(@text, "/flash")]').click();
- // await expect(ref).toHaveText('Интервью');
+  // await page.locator('//a[contains(@text, "/flash")]').click();
+
   //page.waitForURL('https://coding.pasv.us/flash');
   await expect(page.locator('//a[@title=\'Non-technical Interview\']')).toHaveCSS('color', 'rgb(83, 81, 251)');
   await expect(page.locator('//h1')).toHaveText('Interview practice cards');
   await page.screenshot({path: `screenShots/${browserName}.png`});
 
 })
+
+
