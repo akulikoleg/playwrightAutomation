@@ -8,6 +8,7 @@ type Fixture = {
 
 export const test = base.extend<Fixture>({
     todoPage: async({page}, use) => {
+      // Set up Fixture
       const todoPage = new TodoPage(page)
       await todoPage.goto();
       await todoPage.addToDo('Test Todo');
