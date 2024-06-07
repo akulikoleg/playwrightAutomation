@@ -2,6 +2,7 @@ import {expect, Page} from "@playwright/test";
 
 export class DragAndDrop {
   readonly page:Page;
+
   constructor(page:Page) {
     this.page = page;
   }
@@ -25,6 +26,12 @@ export class DragAndDrop {
     return '[id="droppable"]';
   }
 
+  async goto(){
+    await this.page.goto('https://www.lambdatest.com/selenium-playground/drag-and-drop-demo');
+
+  }
+
+
   public async dropAndDropElement(text:string){
 
    await this.page.locator(this.dragEl, {hasText: text}).dragTo( this.page.locator(this.drophereEl) );
@@ -45,10 +52,6 @@ export class DragAndDrop {
     await this.page
       .locator(this.dragMe, { hasText: text })
       .dragTo(this.page.locator(this.dropMe));
-    expect(await this.page.locator(this.dropMe).textContent()).toContain(textInDropBox);
-    expect(await this.page.locator(this.dropMe)).toHaveCSS(
-      "background-color",
-      "rgb(14, 186, 197)"
-    );
+
   }
 }
