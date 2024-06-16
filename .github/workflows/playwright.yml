@@ -5,6 +5,7 @@ on:
     branches: [ develop, master ]
   schedule:
     - cron: '25 18 16 6 *'
+      timezone: UTC
 
 jobs:
   test:
