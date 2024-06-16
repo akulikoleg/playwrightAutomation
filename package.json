@@ -10,7 +10,8 @@
     "ng": "ng",
     "start": "ng serve",
     "dropDown": "npx playwright test dropDown.spec.ts",
-    "lambdaTest": "npx playwright test lambdatest"
+    "lambdaTest": "npx playwright test lambdatest",
+    "network": "npx playwright test network"
   },
   "dependencies": {
     "@angular/animations": "^14.2.12",
