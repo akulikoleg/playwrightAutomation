@@ -1,0 +1,37 @@
+name: Playwright Tests
+on:
+  push:
+    branches: [develop, master]
+  pull_request:
+    branches: [develop, master]
+jobs:
+  test:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm i --force
+      - name: Install playwright
+        run: npx playwright install --with-deps
+      - name: Install Allure reports
+        run: |
+          npm install -D allure-commandline --force
+          npx allure generate ./allure-results --clean
+      - name: Run Playwright tests
+        run: npm run network
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright HW report
+          path: playwright-report/
+          retentions-days: 30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-allure
+          path: allure-report/
+          retention-days: 30
