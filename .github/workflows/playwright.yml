@@ -3,7 +3,7 @@ name: Playwright Tests
 on:
 
   schedule:
-    - cron: '25 18 16 6 *'
+    - cron: '25 18 18 6 *'
       timezone: UTC
 
 jobs:
