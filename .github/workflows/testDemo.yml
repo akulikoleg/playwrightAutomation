@@ -1,33 +1,33 @@
 name: testDemo
 
 on:
-  pull_request:
-    types:
-      - opened
-      - closed
-    branches:
-      - master
-      - develop
-      - feat/*
-      - bugfix/*
-      - hotfix/*
-      - release/*
+#  pull_request:
+#    types:
+#      - opened
+#      - closed
+#    branches:
+#      - master
+#      - develop
+#      - feat/*
+#      - bugfix/*
+#      - hotfix/*
+#      - release/*
   workflow_dispatch:
-  push:
-    branches:
-      - master
-      - develop
-      - feat/*
-      - bugfix/*
-      - hotfix/*
-    paths-ignore:
-      - '**.md'
-      - '**.yml'
-      - '**.yaml'
-      - '**.json'
-      - '**.sh'
-  schedule:
-    - cron: '0 0 * * *'
+#   push:
+#    branches:
+#      - master
+#      - develop
+#      - feat/*
+#      - bugfix/*
+#      - hotfix/*
+#    paths-ignore:
+#      - '**.md'
+#      - '**.yml'
+#      - '**.yaml'
+#      - '**.json'
+#      - '**.sh'
+#  schedule:
+#    - cron: '0 0 * * *'
 jobs:
   start_projects:
     runs-on: ubuntu-latest
