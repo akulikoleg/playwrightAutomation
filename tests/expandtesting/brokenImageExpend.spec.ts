@@ -6,7 +6,7 @@ test.beforeEach('add blocker expandtesting', async ({page}) => {
   const addBlocker = [
 
     'https://cdn.jsdelivr.net',
-    //'https://code.jquery.com',
+    'https://code.jquery.com',
     'https://www.googletagmanager.com',
     'https://pagead2.googlesyndication.com',
     'chrome-extension://hdokiejnpimakedhajhdlcegeplioahd',
@@ -14,7 +14,6 @@ test.beforeEach('add blocker expandtesting', async ({page}) => {
     'https://www.google-analytics.com',
     'https://fundingchoicesmessages.google.com',
     'https://tpc.googlesyndication.com',
-
 
   ];
 
